@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Mood swing test by Daniel Coto</title>
+
+    <style type="text/css">
+        .number {
+        
+            background-color: #c0c0c0;
+            color: #000;
+            font-weight: bold;
+            padding: 3px;
+            text-align:center;
+        }
+
+        .image {
+            height: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+
+            Write a program that prints the numbers 1 to 100 within a colored (gray) block.  However, for multiples of three also render a smile icon next to the number.  For multiples of five render a frown icon next to the number.  For multiples of three and five output both next to the number.
+    Use HTML, CSS, and JavaScript to create your solution.  You can use ASP and/or any JavaScript library you are comfortable with, or vanilla JavaScript.
+    You can use the attached icon files (smile.png and frown.png) or an icon service (e.g., font awesome)
+
+            -->
+
+    <script type="text/javascript">
+        // WE SET THE LIMITS
+        var lowerLimit = 1;
+        var upperLimit = 100;
+
+        //WE ADD AN ARRAY OF CONDITIONS AND THEIR IMG, THAT WAY WE CAN ADD AS MANY AS WE WANT
+        var conditions = [{ multipleOf: 5, img: 'img/frown.png' }, { multipleOf: 3, img: 'img/smile.png' }];
+
+        var htmlString = '<table cellspacing="0" cellpadding="0">';
+
+        for (var i = lowerLimit; i <= upperLimit; i++) {
+            htmlString += '<tr><td class="number">' + i + '</td>';
+
+            // WE GO THROUGH THE CONDITIONS AND APPLY THE EMOJIS IF APPLICABLE
+            for (var conditionObj of conditions) {
+                //APPLY MOD TO THE VALUE AND IF ZERO WE PRINT
+                if (i % conditionObj.multipleOf == 0) {
+                    htmlString += '<td style="text-align:center"><img class="image" src="' + conditionObj.img + '" /></td>';
+                }
+            }
+
+            htmlString += '</tr>';
+        }
+
+        htmlString += '</table>';
+
+        //FINALLY WE WRITE TO THE DOCUMENT
+        document.write(htmlString);
+    </script>
+</body>
+</html>
