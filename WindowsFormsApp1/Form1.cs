@@ -57,8 +57,9 @@ namespace WindowsFormsApp1
                         }
                     }
 
+                    var highest = dictionary.OrderByDescending(x => x.Value).First();
                     //AT THE END OF THE COUNT, WE RETURN THE HIGHEST VALUE
-                    lblResult.Text = $"The character that ocurred the most was {dictionary.Keys.Max()} with {dictionary.Values.Max()} appereances.";
+                    lblResult.Text = $"The character that ocurred the most was {highest.Key} with {highest.Value} appereances.";
                 }
                 else
                 {

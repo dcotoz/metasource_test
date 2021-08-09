@@ -67,6 +67,7 @@
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(0, 13);
             this.lblResult.TabIndex = 3;
+            this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
